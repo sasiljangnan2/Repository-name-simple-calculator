@@ -1,5 +1,5 @@
 // 단위 테스트: 함수 하나를 격리해서 테스트
-import { add, calculate } from "../../src/calculator.js";
+import { add, subtract, calculate } from "../../src/calculator.js";
  
 describe("add", () => {
   test("두 양수를 더한다", () => {
@@ -19,11 +19,10 @@ describe("calculate", () => {
   });
 });
 describe("subtract", () => {
-test("두 수를 뺀다", () => {
-expect(subtract(10, 4)).toBe(6);
+  test("두 수를 뺀다", () => {
+    expect(subtract(10, 4)).toBe(6);
+  });
+  test("음수 결과도 처리한다", () => {
+    expect(subtract(3, 10)).toBe(-7);
+  });
 });
-test("음수 결과도 처리한다", () => {
-expect(subtract(3, 10)).toBe(-7);
-});
-});
-
