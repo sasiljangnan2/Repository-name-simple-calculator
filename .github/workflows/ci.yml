@@ -1,7 +1,7 @@
 # CI - PR이 열릴 때, 그리고 main에 push될 때 자동으로 실행
 name: CI
  
-on:
+on: # 언제 실행할지 정의
   pull_request:
     branches: [main]
   push:
@@ -12,11 +12,11 @@ jobs:
     name: 1) 린트 검사 (ESLint)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4 # 이미만들어진 라이브러리
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "npm"
+          cache: "npm" #필요한 라이브러리 저장 후 나중에 다시 사용
       - run: npm ci
       - run: npm run lint
  
@@ -36,7 +36,7 @@ jobs:
     name: 3) 단위 테스트 (Jest)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4 # 코드 체크아웃 이미 누가 만들어둔 라이브러리
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
