@@ -18,3 +18,17 @@ describe("calculate", () => {
     expect(() => calculate("modulo", 1, 2)).toThrow("알 수 없는 연산자");
   });
 });
+describe("subtract", () => {
+test("두 수를 뺀다", () => {
+expect(subtract(10, 4)).toBe(6);
+});
+test("음수 결과도 처리한다", () => {
+expect(subtract(3, 10)).toBe(-7);
+});
+});
+test("빼기 버튼이 두 입력값을 빼서 display에 표시한다", () =>{
+document.getElementById("inputA").value ="10";
+document.getElementById("inputB").value ="8";
+document.querySelector('[data-testid="btn-subtract"]').click();
+expect(document.querySelector('[data-testid="display"]').textContent).toBe("2");
+});
